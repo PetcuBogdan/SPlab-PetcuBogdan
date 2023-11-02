@@ -1,9 +1,10 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Getter;
 
 public class Paragraph implements Element{
+    AlignStrategy textAlignment;
+    @Getter
     private String text;
 
     public Paragraph(String text) {
@@ -11,7 +12,14 @@ public class Paragraph implements Element{
     }
 
     public void print() {
-        System.out.println("Paragraph: " + text);
+        if (textAlignment != null)
+            textAlignment.render(this);
+        else
+            System.out.println(text);
+    }
+
+    public void setAlignStrategy(AlignStrategy align) {
+        textAlignment = align;
     }
 
     @Override
