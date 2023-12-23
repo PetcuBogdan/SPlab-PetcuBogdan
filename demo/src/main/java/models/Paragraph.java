@@ -1,8 +1,11 @@
-package com.example.demo;
+package models;
 
 import lombok.Getter;
+import models.Element;
+import services.AlignStrategy;
+import services.Visitor;
 
-public class Paragraph implements Element{
+public class Paragraph implements Element {
     AlignStrategy textAlignment;
     @Getter
     private String text;
@@ -36,4 +39,14 @@ public class Paragraph implements Element{
     public void remove(Element el){
 
     }
+
+    public AlignStrategy getTextAlignment() {
+        return textAlignment;
+    }
+
+    @Override
+    public void acceptVisitor(Visitor v) {
+        v.visitParagraph(this);
+    }
+
 }

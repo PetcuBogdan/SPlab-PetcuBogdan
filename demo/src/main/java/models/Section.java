@@ -1,9 +1,12 @@
-package com.example.demo;
+package models;
+
+import models.Element;
+import services.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Section implements Element{
+public class Section implements Element {
     public String title;
     public List<Element> elements = new ArrayList<Element>();
 
@@ -35,5 +38,15 @@ public class Section implements Element{
     @Override
     public void remove(Element el){
 
+    }
+
+
+
+    @Override
+    public void acceptVisitor(Visitor v) {
+        v.visitSection(this);
+        for (Element el : elements) {
+            el.acceptVisitor(v);
+        }
     }
 }

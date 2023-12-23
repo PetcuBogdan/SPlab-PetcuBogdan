@@ -1,9 +1,11 @@
-package com.example.demo;
+package models;
 
-public class TableOfContents implements Element{
+import models.Element;
+import services.Visitor;
+
+public class TableOfContents implements Element {
     @Override
     public void print() {
-
     }
 
     @Override
@@ -19,5 +21,10 @@ public class TableOfContents implements Element{
     @Override
     public void remove(Element el){
 
+    }
+
+    @Override
+    public void acceptVisitor(Visitor v) {
+        v.visitTableOfContent(this);
     }
 }
