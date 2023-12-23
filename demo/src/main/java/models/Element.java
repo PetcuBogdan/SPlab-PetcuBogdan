@@ -1,4 +1,6 @@
-package com.example.demo;
+package models;
+
+import services.Visitor;
 
 public interface Element {
     void print();
@@ -8,4 +10,6 @@ public interface Element {
     Element get(int nr);
 
     void remove(Element el);
+
+    void acceptVisitor(Visitor v);
 }

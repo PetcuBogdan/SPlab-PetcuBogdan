@@ -1,6 +1,9 @@
-package com.example.demo;
+package models;
 
-public class Table implements Element{
+import models.Element;
+import services.Visitor;
+
+public class Table implements Element {
     private String title;
 
     public Table(String title) {
@@ -24,5 +27,10 @@ public class Table implements Element{
     @Override
     public void remove(Element el){
 
+    }
+
+    @Override
+    public void acceptVisitor(Visitor v) {
+        v.visitTable(this);
     }
 }

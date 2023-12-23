@@ -1,9 +1,11 @@
-package com.example.demo;
+package models;
+
+import services.Visitor;
 
 import java.util.List;
 import java.util.ArrayList;
 
-public class Book extends Section{
+public class Book extends Section {
     final private String title;
     private List<Author> authors = new ArrayList<>();
 
@@ -29,5 +31,14 @@ public class Book extends Section{
 
     public void addContent(Element el) {
          elements.add(el);
+    }
+
+
+    @Override
+    public void acceptVisitor(Visitor v) {
+        v.visitBook(this);
+        for (Element el : elements) {
+            el.acceptVisitor(v);
+        }
     }
 }

@@ -1,8 +1,11 @@
-package com.example.demo;
+package models;
+
+import services.Visitor;
+
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
-public class Image implements Element,Picture{
+public class Image implements Element, Picture {
     private String imageName;
     public Image(String name) {
         imageName = name;
@@ -42,5 +45,11 @@ public class Image implements Element,Picture{
     @Override
     public Dimension dim() {
         return null;
+    }
+
+
+    @Override
+    public void acceptVisitor(Visitor v) {
+        v.visitImage(this);
     }
 }
