@@ -1,6 +1,6 @@
-package services;
+package com.example.demo.services;
 
-import models.Paragraph;
+import com.example.demo.models.Paragraph;
 
 public class AlignCenter implements AlignStrategy {
     @Override

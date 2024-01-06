@@ -1,6 +1,4 @@
-package models;
-
-import services.Visitor;
+package com.example.demo.models;
 
 public interface Element {
     void print();

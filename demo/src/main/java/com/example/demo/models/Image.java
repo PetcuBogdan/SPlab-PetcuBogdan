@@ -1,12 +1,10 @@
-package models;
-
-import services.Visitor;
+package com.example.demo.models;
 
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class Image implements Element, Picture {
-    private String imageName;
+    public String imageName;
     public Image(String name) {
         imageName = name;
         try {

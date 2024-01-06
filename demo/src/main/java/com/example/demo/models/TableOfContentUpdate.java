@@ -1,6 +1,6 @@
-package services;
+package com.example.demo.models;
 
-import models.*;
+import com.example.demo.models.*;
 
 public class TableOfContentUpdate implements Visitor{
     private int pagesCount=1;
@@ -46,5 +46,10 @@ public class TableOfContentUpdate implements Visitor{
     @Override
     public void visitTable(Table table) {
         pagesCount++;
+    }
+
+    @Override
+    public void saveToJson(String filename) {
+
     }
 }

@@ -1,11 +1,11 @@
-package com.example.demo;
+package com.example.demo.controller;
 
+import com.example.demo.examples.ClientComponent;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequiredArgsConstructor

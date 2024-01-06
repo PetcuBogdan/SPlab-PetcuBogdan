@@ -1,22 +1,17 @@
-package models;
-
-import models.Element;
-import models.Image;
-import models.Picture;
-import services.Visitor;
+package com.example.demo.models;
 
 import java.awt.*;
 
 public class ImageProxy implements Picture, Element {
-    private String url;
+    public String url;
     private Dimension dim;
-    models.Image realImage = null;
+    com.example.demo.models.Image realImage = null;
 
     public ImageProxy(String url) {
         this.url=url;
     }
 
-    public models.Image loadImage(){
+    public com.example.demo.models.Image loadImage(){
         if (realImage == null) {
             realImage = new Image(url);
         }

@@ -1,17 +1,8 @@
-package models;
+package com.example.demo.models;
 
-import models.Element;
-import services.Visitor;
-
-public class Table implements Element {
-    private String title;
-
-    public Table(String title) {
-        this.title = title;
-    }
-
+public class TableOfContents implements Element {
+    @Override
     public void print() {
-        System.out.println("Table with name: " + title);
     }
 
     @Override
@@ -31,6 +22,6 @@ public class Table implements Element {
 
     @Override
     public void acceptVisitor(Visitor v) {
-        v.visitTable(this);
+        v.visitTableOfContent(this);
     }
 }

@@ -1,8 +1,6 @@
-package services;
+package com.example.demo.models;
 
-import models.*;
-
-public class BookStatistics implements Visitor{
+public class BookStatistics implements Visitor {
     private int books=0;
     private int images=0;
     private int sections=0;
@@ -65,5 +63,10 @@ public class BookStatistics implements Visitor{
     @Override
     public void visitTable(Table table) {
         tables++;
+    }
+
+    @Override
+    public void saveToJson(String filename) {
+
     }
 }

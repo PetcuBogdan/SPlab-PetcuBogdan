@@ -1,6 +1,5 @@
-package services;
+package com.example.demo.models;
 
-import models.*;
 
 public interface Visitor {
     void visitBook(Book book);
@@ -16,5 +15,6 @@ public interface Visitor {
     void visitImage(Image image);
 
     void visitTable(Table table);
-    
+
+    void saveToJson(String filename);
 }
