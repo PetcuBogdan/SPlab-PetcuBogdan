@@ -1,4 +1,4 @@
-package models;
+package com.example.demo.models;
 
 public class Author {
     private String name;

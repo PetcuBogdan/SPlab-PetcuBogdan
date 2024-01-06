@@ -1,6 +1,6 @@
-package services;
+package com.example.demo.models;
 
-import models.*;
+import com.example.demo.models.*;
 
 public class RenderContentVisitor implements Visitor{
 
@@ -37,5 +37,10 @@ public class RenderContentVisitor implements Visitor{
     @Override
     public void visitTable(Table table) {
         table.print();
+    }
+
+    @Override
+    public void saveToJson(String filename) {
+
     }
 }

@@ -1,7 +1,4 @@
-package models;
-
-import models.Element;
-import services.Visitor;
+package com.example.demo.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +6,7 @@ import java.util.List;
 public class Section implements Element {
     public String title;
     public List<Element> elements = new ArrayList<Element>();
-
+    public List<Element> vis = new ArrayList<>();
 
     public Section(String title) {
         this.title = title;

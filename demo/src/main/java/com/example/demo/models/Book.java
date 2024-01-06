@@ -1,13 +1,15 @@
-package models;
+package com.example.demo.models;
 
-import services.Visitor;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.List;
 import java.util.ArrayList;
 
+
 public class Book extends Section {
-    final private String title;
-    private List<Author> authors = new ArrayList<>();
+    public  String title;
+    public List<Author> authors = new ArrayList<>();
+    @JsonCreator
 
     public Book(String title) {
         this.title = title;

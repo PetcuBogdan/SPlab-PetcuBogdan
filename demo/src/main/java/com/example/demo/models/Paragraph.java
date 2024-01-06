@@ -1,9 +1,7 @@
-package models;
+package com.example.demo.models;
 
 import lombok.Getter;
-import models.Element;
-import services.AlignStrategy;
-import services.Visitor;
+import com.example.demo.services.AlignStrategy;
 
 public class Paragraph implements Element {
     AlignStrategy textAlignment;
