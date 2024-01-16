@@ -14,7 +14,7 @@ public class AddBooks implements Command<Book> {
 
     @Override
     public Book execute() {
-        return contextbooks.save(book);
+        return contextbooks.saveBook(book);
     }
 
     public void setAtribute(Book newBook){

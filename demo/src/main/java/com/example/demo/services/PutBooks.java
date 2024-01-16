@@ -8,6 +8,7 @@ public class PutBooks implements Command<Book> {
     private Book updatedBook;
     private BookService bookService;
 
+
     public PutBooks() {}
 
     public PutBooks(Book updatedBook, BookService bookService) {
@@ -21,6 +22,6 @@ public class PutBooks implements Command<Book> {
 
     @Override
     public Book execute() {
-        return this.bookService.update(id, updatedBook);
+        return this.bookService.updateBook(id, updatedBook);
     }
 }

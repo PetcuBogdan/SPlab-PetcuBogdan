@@ -1,10 +1,13 @@
 package com.example.demo.models;
 
+import jakarta.persistence.Transient;
+
 import java.awt.*;
 
 public class ImageProxy implements Picture, Element {
     public String url;
     private Dimension dim;
+    @Transient
     com.example.demo.models.Image realImage = null;
 
     public ImageProxy(String url) {

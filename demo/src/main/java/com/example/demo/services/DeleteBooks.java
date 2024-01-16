@@ -17,7 +17,7 @@ public class DeleteBooks implements Command<Void>{
 
     @Override
     public Void execute() {
-        bookService.delete(Id);
+        bookService.deleteBook(Id);
         return null;
     }
     public void setAtribute(Long id){

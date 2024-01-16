@@ -1,11 +1,26 @@
 package com.example.demo.models;
 
-public class Table implements Element {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+public class Table extends BaseElement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     public String title;
 
     public Table(String title) {
         this.title = title;
     }
+
+    public Table() {}
 
     public void print() {
         System.out.println("Table with name: " + title);
@@ -22,9 +37,7 @@ public class Table implements Element {
     }
 
     @Override
-    public void remove(Element el){
-
-    }
+    public void remove(Element el){}
 
     @Override
     public void acceptVisitor(Visitor v) {

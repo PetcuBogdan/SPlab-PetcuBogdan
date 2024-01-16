@@ -17,7 +17,7 @@ public class TableOfContentUpdate implements Visitor{
             first = false;
             System.out.println("TableOfContent");
         }
-        System.out.println(section.title + "............." + pagesCount);
+        System.out.println(section.getTitle() + "............." + pagesCount);
     }
 
     @Override
