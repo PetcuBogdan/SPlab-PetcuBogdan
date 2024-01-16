@@ -1,12 +1,24 @@
 package com.example.demo.models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Section implements Element {
-    public String title;
-    public List<Element> elements = new ArrayList<Element>();
-    public List<Element> vis = new ArrayList<>();
+@Getter
+@Setter
+@Entity
+public class Section extends BaseElement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String title;
+    @OneToMany(targetEntity = BaseElement.class)
+    private List<Element> elements = new ArrayList<Element>();
+    @OneToMany(targetEntity = BaseElement.class)
+    private List<Element> vis = new ArrayList<>();
 
     public Section(String title) {
         this.title = title;

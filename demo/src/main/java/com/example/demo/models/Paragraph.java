@@ -1,16 +1,26 @@
 package com.example.demo.models;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import com.example.demo.services.AlignStrategy;
+import lombok.Setter;
 
-public class Paragraph implements Element {
+@Entity
+@Getter
+@Setter
+public class Paragraph extends BaseElement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Transient
     AlignStrategy textAlignment;
-    @Getter
     private String text;
 
     public Paragraph(String text) {
         this.text = text;
     }
+
+    public Paragraph() {}
 
     public void print() {
         if (textAlignment != null)

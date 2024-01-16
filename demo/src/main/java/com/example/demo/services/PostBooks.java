@@ -15,6 +15,6 @@ public class PostBooks implements Command<Book>{
 
     @Override
     public Book execute() {
-        return this.bookService.save(this.book);
+        return this.bookService.saveBook(this.book);
     }
 }

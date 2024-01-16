@@ -16,7 +16,11 @@ public class UpdateBook implements Command<Book>{
 
     @Override
     public Book execute() {
-        contextBooks.update(id,book);
+        contextBooks.updateBook(id,book);
         return contextBooks.getBookById(id);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

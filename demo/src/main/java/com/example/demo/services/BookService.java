@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.models.BookRepository;
 import org.springframework.stereotype.Service;
 import com.example.demo.models.Book;
 
@@ -10,30 +11,43 @@ import java.util.Map;
 
 @Service
 public class BookService {
-    private Map<Long, Book> books = new HashMap<>();
-    private long Id = 1;
-    public Book save(Book book)
-    {
-        books.put(Id,book);
-        return books.get(Id);
+    private final BookRepository booksRepository;
+
+    public BookService(BookRepository booksRepository) {
+        this.booksRepository = booksRepository;
     }
 
-    public void delete(Long bookId)
+    public Book saveBook(Book book)
     {
-        books.remove(bookId);
+        book = booksRepository.save(book);
+        return book;
+    }
+
+    public String deleteBook(Long id)
+    {
+        if (booksRepository.existsById(id)) {
+            booksRepository.deleteById(id);
+            return "Book deleted!";
+        } else {
+            return "Book not found with ID: " + id;
+        }
     }
 
     public List<Book> getAllBooks() {
-        return new ArrayList<>(books.values());
+        return booksRepository.findAll();
     }
 
-    public Book update(Long bookId, Book updatedBook) {
-        if (books.containsKey(bookId)) {
-            books.put(bookId, updatedBook);
+    public Book updateBook(Long id, Book updateBook) {
+        if (booksRepository.existsById(id)) {
+            Book existingBook = booksRepository.findById(id).get();
+            existingBook.setTitle(updateBook.getTitle());
+            booksRepository.save(existingBook);
+            return existingBook;
+        } else {
+            return null;
         }
-        return updatedBook;
     }
-    public Book getBookById(Long bookId) {
-        return books.get(bookId);
+    public Book getBookById(Long id) {
+        return booksRepository.getReferenceById(id);
     }
 }

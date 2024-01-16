@@ -1,19 +1,30 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.ArrayList;
 
-
+@Getter
+@Setter
+@Entity(name = "Book")
 public class Book extends Section {
-    public  String title;
-    public List<Author> authors = new ArrayList<>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private  String title;
+    @ManyToMany
+    private List<Author> authors;
     @JsonCreator
 
     public Book(String title) {
         this.title = title;
     }
+
+    public Book() {}
 
     public void print() {
         System.out.println(title);
@@ -22,7 +33,7 @@ public class Book extends Section {
             author.Print();
         }
 
-        for(Element el : elements) {
+        for(Element el : getElements()) {
             el.print();
         }
     }
@@ -32,14 +43,14 @@ public class Book extends Section {
     }
 
     public void addContent(Element el) {
-         elements.add(el);
+         getElements().add(el);
     }
 
 
     @Override
     public void acceptVisitor(Visitor v) {
         v.visitBook(this);
-        for (Element el : elements) {
+        for (Element el : getElements()) {
             el.acceptVisitor(v);
         }
     }

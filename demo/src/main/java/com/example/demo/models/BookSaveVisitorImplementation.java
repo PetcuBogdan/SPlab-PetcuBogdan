@@ -25,17 +25,17 @@ public class BookSaveVisitorImplementation implements BookSaveVisitor{
     }
     @Override
     public void visitBook(Book book) {
-        saveElementToJson(book.getClass().getSimpleName(), book.title);
+        saveElementToJson(book.getClass().getSimpleName(), book.getTitle());
     }
 
     @Override
     public void visitSection(Section section) {
         ObjectNode sectionNode = new ObjectMapper().createObjectNode();
         sectionNode.put("type", section.getClass().getSimpleName());
-        sectionNode.put("title", section.title);
+        sectionNode.put("title", section.getTitle());
 
         ArrayNode elementsNode = new ObjectMapper().createArrayNode();
-        for (Element element : section.vis) {
+        for (Element element : section.getVis()) {
             if (element instanceof Paragraph || element instanceof ImageProxy ||
                     element instanceof Image || element instanceof Table) {
                 element.acceptVisitor(this);
